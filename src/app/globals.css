@@ -2,26 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer base {
+    * {
+        @apply box-border;
+    }
+    body {
+        @apply bg-stone-50/80 font-semibold overflow-x-hidden text-black selection:text-white selection:bg-green-400 selection:font-normal;
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@layer components {
+    .icon__sm {
+        @apply aspect-square cursor-pointer shadow-md hover:translate-y-0.5 grid place-items-center w-8 rounded-full bg-stone-300/70 transition-all hover:bg-stone-300 duration-300;
+    }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer utilities {
+    .inactive {
+        @apply text-Green-300 font-semibold after:transition-all after:scale-x-0 hover:after:scale-x-100 after:block after:pb-0.5 after:border-b-2 after:border-Green-300;
+    }
+    .active {
+        @apply text-Green-300 font-bold after:transition-all after:scale-x-100 after:block after:pb-0.5 after:border-b-2 after:border-Green-300;
+    }
+    .primary__gradient {
+        @apply bg-gradient-to-br from-Green-400 via-Green-300 to-Green-300;
+    }
+    .font-uthmanic {
+        font-family: 'Uthmanic', sans-serif !important;
+    }
 }

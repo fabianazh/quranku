@@ -1,8 +1,8 @@
-export default function Home() {
+export default function Contact() {
     return (
         <>
             <div>Hello World!</div>
-            <div>This is Home Page</div>
+            <div>This is Contact Page</div>
         </>
     )
 }

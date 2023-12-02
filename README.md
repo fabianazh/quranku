@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# QuranKu - Quran Digital Application
+
+QuranKu is a Quran digital application developed with Next.js and TypeScript. It offers a range of features, including audio for surahs and verses, and tafsir in Bahasa Indonesia.
+
+## Features
+
+-   **Read Anytime, Anywhere:** Access the Quran at your fingertips, whether you're at home, on the go, or during your daily routines.
+
+-   **Clean and Simple Design:** Embracing a minimalistic design for a distraction-free reading experience, focusing on the essence of the Quranic text.
+
+-   **Audio for Surahs and Verses:** Listen to the beautiful recitation of the Quran with audio support for both entire surahs and individual verses.
+
+-   **Tafsir in Bahasa Indonesia:** Gain deeper insights into the meaning of the Quranic text with tafsir (exegesis) in Bahasa Indonesia.
+
+## Tech Stack
+
+-   **Next.js:** A React framework for building server-side rendered (SSR) and statically generated web applications.
+
+-   **TypeScript:** A superset of JavaScript that adds static types to the language.
 
 ## Getting Started
 
-First, run the development server:
+1. **Clone the Repository:**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+    ```bash
+    git clone https://github.com/fabianazh/quranku.git
+    cd quranku
+    ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install Dependencies:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+    ```bash
+    npm install
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. **Run the Application:**
 
-## Learn More
+    ```bash
+    npm run dev
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Contributions are welcome! If you'd like to contribute to QuranKu, please follow these steps:
 
-## Deploy on Vercel
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Submit a pull request.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the [MIT License](LICENSE).
