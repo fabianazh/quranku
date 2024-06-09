@@ -27,7 +27,7 @@
         "**/*.ts",
         "**/*.tsx",
         ".next/types/**/*.ts",
-        "src/app/surah/loading.tsx"
+        "src/app/loading.tsx"
     ],
     "exclude": ["node_modules"]
 }

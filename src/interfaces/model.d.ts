@@ -1,4 +1,4 @@
-type Surah = {
+interface Surah {
     nomor: number
     nama: string
     namaLatin: string
@@ -17,21 +17,23 @@ type Surah = {
         nomor: number
         namaLatin: string
     }
+    ayat: Verse[]
 }
 
-type SurahFilterContainerProps = {
-    handleListLayout: (layoutType: boolean) => void
-    handleFilter: (filterType: string) => void
-    gridLayout: boolean
-    filterBy: string
+interface Verse {
+    nomorAyat: number
+    teksArab: string
+    teksLatin: string
+    teksIndonesia: string
+    audio: { [key: string]: string }
 }
 
-type SurahDetailPageProps = {
-    params: {
-        id: number
+interface Hadith {
+    name: string
+    contents: {
+        number: number
+        arab: string
+        latin: string
+        latinIndo: string
     }
-}
-
-type SurahDescriptionContainerProps = {
-    surah: Surah
 }

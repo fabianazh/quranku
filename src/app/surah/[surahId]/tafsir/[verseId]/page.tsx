@@ -1,8 +1,8 @@
-export default function Contact() {
+export default function Tafsir() {
     return (
         <>
             <div>Hello World!</div>
-            <div>This is Contact Page</div>
+            <div>This is Home Page</div>
         </>
     )
 }

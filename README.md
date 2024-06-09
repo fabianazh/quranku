@@ -1,6 +1,6 @@
 # QuranKu - Quran Digital Application
 
-QuranKu is a Quran digital application developed with Next.js and TypeScript. It offers a range of features, including audio for surahs and verses, and tafsir in Bahasa Indonesia.
+QuranKu is a modern and accessible Quran web application designed to provide users with a seamless reading experience anywhere, anytime. Whether users are at home, traveling, or on the move, QuranKu ensures that the beauty and wisdom of the Quran are just a click away
 
 ## Features
 

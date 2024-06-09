@@ -1,15 +1,10 @@
-import { HiArrowSmUp } from 'react-icons/hi'
-
-interface FilterButtonProps {
-    customClass: string
-    handleFilter: (filterType: string) => void
-    filterValue: string
-}
+import { HiArrowSmDown, HiArrowSmUp } from 'react-icons/hi'
 
 export default function FilterButton({
     customClass,
     handleFilter,
     filterValue,
+    isAscending,
 }: FilterButtonProps) {
     return (
         <>
@@ -22,7 +17,11 @@ export default function FilterButton({
                     <span className="font-extrabold">{filterValue}</span>
                 </div>
                 <div className="flex items-end text-xl">
-                    <HiArrowSmUp />
+                    <HiArrowSmDown
+                        className={`transition-transform ${
+                            isAscending ? 'rotate-180' : ''
+                        }`}
+                    />
                 </div>
             </div>
         </>

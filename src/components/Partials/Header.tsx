@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, useAnimation } from 'framer-motion'
 import { FiArrowLeft } from 'react-icons/fi'
+import AppIcon from '@/components/Icon/AppIcon'
 
 export default function Header() {
     const pathname = usePathname()
@@ -55,19 +56,16 @@ export default function Header() {
                 },
             }}
             transition={{ duration: 0 }}
-            className={`w-full z-40 h-16 px-11 tracking-wide flex justify-between items-center fixed top-0 right-0  text-Green-300 duration-300 transition-all`}
+            className={`w-full z-40 h-16 px-11 tracking-wide flex justify-between items-center fixed top-0 right-0 text-Green-300 duration-300 transition-all`}
         >
-            <div className="w-1/3">
-                <Link
-                    href={'/'}
-                    className={`${
-                        pathname.startsWith('/surah/') ? 'hidden' : 'block'
-                    }`}
-                >
-                    <span className="font-bold hover:text-green-500 duration-300 transition-all">
-                        QuranKu
-                    </span>
-                </Link>
+            <div
+                className={`${
+                    pathname.startsWith('/surah/')
+                        ? 'w-1/3'
+                        : 'w-full grid place-items-center'
+                }`}
+            >
+                <AppIcon pathname={pathname} />
                 <Link
                     href={'/surah'}
                     className={`${
@@ -95,39 +93,11 @@ export default function Header() {
                     </span>
                 </Link>
             </div>
-            <nav className="w-1/3 flex justify-end">
-                <ul className="flex gap-9 text-sm font-semibold">
-                    <Link href={'/'}>
-                        <span
-                            className={`nav__link ${
-                                pathname === '/' ? 'active' : 'inactive'
-                            } transition-all transform hover:(text-Green-500 font-bold)`}
-                        >
-                            Home
-                        </span>
-                    </Link>
-                    <Link href={'/surah'}>
-                        <span
-                            className={`nav__link ${
-                                pathname.startsWith('/surah')
-                                    ? 'active'
-                                    : 'inactive'
-                            } transition-all transform hover:(text-Green-500 font-bold)`}
-                        >
-                            Surah
-                        </span>
-                    </Link>
-                    <Link href={'/contact'}>
-                        <span
-                            className={`nav__link ${
-                                pathname === '/contact' ? 'active' : 'inactive'
-                            } transition-all transform hover:(text-Green-500 font-bold)`}
-                        >
-                            Contact
-                        </span>
-                    </Link>
-                </ul>
-            </nav>
+            <nav
+                className={`w-1/3 h-full ${
+                    pathname.startsWith('/surah/') ? '' : 'hidden'
+                }`}
+            ></nav>
         </motion.header>
     )
 }

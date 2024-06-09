@@ -3,6 +3,7 @@ import { Poppins, Quicksand } from 'next/font/google'
 export const quicksand = Quicksand({
     subsets: ['latin'],
     variable: '--font-quicksand',
+    display: 'swap',
 })
 
 export const poppins = Poppins({

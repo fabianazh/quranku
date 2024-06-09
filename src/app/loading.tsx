@@ -1,7 +1,7 @@
 'use client'
 
-import SurahFilterContainer from '@/components/container/SurahFilterContainer'
-import SurahCardSkeleton from '@/components/skeleton/SurahCardSkeleton'
+import SurahCardSkeleton from '@/components/Skeleton/SurahCardSkeleton'
+import SurahFilterContainer from '@/components/Container/SurahFilterContainer'
 
 export default function SurahListLoading() {
     const defaultSurahFilterContainerProps: SurahFilterContainerProps = {
@@ -9,6 +9,7 @@ export default function SurahListLoading() {
         handleFilter: () => {},
         gridLayout: false,
         filterBy: 'No Urut',
+        isAscending: true,
     }
 
     return (
@@ -19,7 +20,7 @@ export default function SurahListLoading() {
                     className={`w-full h-auto gap-2 xl:gap-5 flex flex-col xl:grid xl:grid-cols-4`}
                 >
                     {Array.from({ length: 12 }, (_, index) => (
-                        <SurahCardSkeleton key={index}></SurahCardSkeleton>
+                        <SurahCardSkeleton key={index} />
                     ))}
                 </div>
             </section>

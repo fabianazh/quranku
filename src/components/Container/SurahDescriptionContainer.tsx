@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import { HiArrowNarrowLeft, HiArrowNarrowRight } from 'react-icons/hi'
 import { LuDot } from 'react-icons/lu'
 import { FiPauseCircle, FiPlayCircle, FiShare2 } from 'react-icons/fi'
-import BasicButton from '../Button/BasicButton'
+import BasicButton from '@/components/Button/BasicButton'
 
 export default function SurahDescriptionContainer({
     surah,
@@ -25,7 +25,7 @@ export default function SurahDescriptionContainer({
 
     return (
         <>
-            {surah.namaLatin !== 'undefined' && (
+            {surah?.namaLatin && (
                 <section className="w-full h-auto flex flex-col gap-4 bg-white p-7 rounded-lg shadow divide-y-[1.5px]">
                     <div className="text-center flex flex-col gap-1.5">
                         <h1 className="text-2xl">
@@ -44,7 +44,7 @@ export default function SurahDescriptionContainer({
                     <div className="pt-4">
                         <span
                             dangerouslySetInnerHTML={{
-                                __html: surah?.deskripsi,
+                                __html: surah?.deskripsi ?? '',
                             }}
                             className="text-justify block leading-7"
                         ></span>
@@ -91,7 +91,6 @@ export default function SurahDescriptionContainer({
                             </div>
                         </div>
                         <div className="flex w-1/3 justify-end">
-                            {/* Adjusted references to use destructured props */}
                             {surah?.suratSelanjutnya &&
                             surah?.suratSelanjutnya.nomor ? (
                                 <>

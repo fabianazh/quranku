@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { quicksand } from './fonts'
-import Header from '@/components/partials/Header'
-import Footer from '@/components/partials/Footer'
+import Header from '@/components/Partials/Header'
+import Footer from '@/components/Partials/Footer'
 
 export const metadata: Metadata = {
     title: 'QuranKu App',
