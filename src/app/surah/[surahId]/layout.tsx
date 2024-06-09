@@ -5,7 +5,7 @@ export default function SurahDetailLayout({
 }) {
     return (
         <>
-            <div className="w-10/12 min-h-screen pt-5 container mx-auto flex flex-col gap-5">
+            <div className="w-full lg:w-10/12 min-h-screen pt-5 container mx-auto flex flex-col gap-5">
                 {children}
             </div>
         </>
