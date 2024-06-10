@@ -4,11 +4,12 @@ import { useRef, useState } from 'react'
 import { FiPauseCircle, FiPlayCircle, FiShare2 } from 'react-icons/fi'
 import NumberIcon from '@/components/Icon/NumberIcon'
 import BasicButton from '@/components/Button/BasicButton'
+import Divider from '@/components/Other/Divider'
 
 export default function VerseCard({ children }: { children: React.ReactNode }) {
     return (
         <>
-            <div className="bg-white flex flex-col px-6 pt-7 pb-7 rounded-lg shadow">
+            <div className="bg-white flex flex-col px-5 lg:px-6 py-5 lg:py-7 rounded-lg shadow">
                 {children}
             </div>
         </>
@@ -20,14 +21,14 @@ export function TopContent({ number, text }: { number: number; text: string }) {
         <>
             <div className="flex justify-between items-start w-full gap-14">
                 {/* Number Verse */}
-                <NumberIcon customClass={'w-9 h-9'}>
+                <NumberIcon customClass={'w-8 lg:w-9 h-8 lg:h-9'}>
                     <span className="text-sm xl:text-lg">{number}</span>
                 </NumberIcon>
                 {/* End Number Verse */}
 
                 {/* Verse */}
                 <span
-                    className="text-xl xl:text-4xl block font-uthmanic text-right -translate-y-3 font-light"
+                    className="text-3xl xl:text-4xl block font-uthmanic text-right -translate-y-3 font-light"
                     style={{ lineHeight: '4rem' }}
                 >
                     {text}
@@ -48,11 +49,16 @@ export function CenterContent({
 }) {
     return (
         <>
-            <div className="flex flex-col gap-4 w-full pb-6">
-                <span className="text-justify"> {text} </span>
+            <div className="flex flex-col gap-2 lg:gap-4 w-full pb-6">
+                <span className="text-sm lg:text-base text-justify">
+                    {' '}
+                    {text}{' '}
+                </span>
                 <div className="flex flex-col gap-2">
-                    <span className="font-bold text-lg">Terjemahan</span>
-                    <span className="text-justify">
+                    <span className="font-bold text-base lg:text-lg">
+                        Terjemahan
+                    </span>
+                    <span className="text-sm lg:text-base text-justify">
                         {/* {'"'}
                         {translate}
                         {'"'} */}
@@ -60,7 +66,7 @@ export function CenterContent({
                     </span>
                 </div>
             </div>
-            <div className="w-full block h-0.5 bg-stone-200 rounded-xl" />
+            <Divider />
         </>
     )
 }
@@ -105,7 +111,7 @@ export function BottomContent({
 
     return (
         <>
-            <div className="flex justify-between w-full pt-6 items-center">
+            <div className="flex justify-between w-full pt-4 lg:pt-6 items-center">
                 <div className="flex gap-5 items-center">
                     {currentlyPlaying === number ? (
                         <FiPauseCircle
@@ -130,7 +136,7 @@ export function BottomContent({
                     <BasicButton
                         pathTo={`/surah/${surahNumber}/tafsir/${number}`}
                         customClass={
-                            'text-sm px-2 py-1 text-white bg-gradient-to-br from-Green-300 via-Green-300 to-Green-400 transition-all duration-300 rounded-sm'
+                            'text-xs lg:text-sm px-2 py-1 text-white bg-gradient-to-br from-Green-300 via-Green-300 to-Green-400 transition-all duration-300 rounded-sm'
                         }
                     >
                         Tafsir Ayat ke {number}

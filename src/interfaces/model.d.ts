@@ -37,3 +37,31 @@ interface Hadith {
         latinIndo: string
     }
 }
+
+interface Interpretation {
+    surah: {
+        name: {
+            transliteration: {
+                id: string
+            }
+        }
+    }
+    number: {
+        inSurah: number
+    }
+    text: {
+        arab: string
+        transliteration: {
+            en: string
+        }
+    }
+    translation: {
+        id: string
+    }
+    tafsir: {
+        id: {
+            short: string
+            long: string
+        }
+    }
+}

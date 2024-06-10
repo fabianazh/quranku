@@ -1,8 +1,9 @@
+import InterpretationVerse from '@/components/Section/InterpretationVerse'
+
 export default function Tafsir() {
     return (
         <>
-            <div>Hello World!</div>
-            <div>This is Home Page</div>
+            <InterpretationVerse />
         </>
     )
 }

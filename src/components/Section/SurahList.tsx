@@ -1,59 +1,68 @@
 'use client'
 
+import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { getAllSurah } from '@/utils/quran'
 import SurahFilterContainer from '@/components/Container/SurahFilterContainer'
 import SurahCard from '@/components/Card/SurahCard'
+import SurahCardSkeleton from '../Skeleton/SurahCardSkeleton'
 
 export default function SurahList() {
     const [allSurah, setAllSurah] = useState<Surah[]>([])
-    const [filterBy, setFilterBy] = useState<string>('No Urut')
+    const [filterBy, setFilterBy] = useState<string>('No Urut Asc')
     const [gridLayout, setGridLayout] = useState<boolean>(true)
-    const [isAscending, setIsAscending] = useState<boolean>(true)
+    const [isLoading, setIsLoading] = useState<boolean>(false)
 
     useEffect(() => {
         const fetchData = async () => {
-            const surahData: Surah[] = await getAllSurah()
-            setAllSurah(surahData)
+            try {
+                setIsLoading(false)
+                const response = await axios.get('/api/surah')
+                setAllSurah(response.data)
+            } catch (err) {
+                console.log(err)
+                setAllSurah([])
+            } finally {
+                setIsLoading(true)
+            }
         }
 
         fetchData()
     }, [])
+
+    const isAscending = filterBy.endsWith('Asc')
 
     const handleListLayout = (layoutType: boolean) => {
         setGridLayout(layoutType)
     }
 
     const handleFilter = (filterType: string) => {
-        if (filterBy === filterType) {
-            setIsAscending(!isAscending)
-        } else {
-            setFilterBy(filterType)
-            setIsAscending(true)
-        }
+        setFilterBy(filterType)
     }
 
     const filteredSurah = () => {
         const sortedSurah = [...allSurah]
         switch (filterBy) {
-            case 'Abjad':
+            case 'Abjad Asc':
                 sortedSurah.sort((a, b) =>
-                    isAscending
-                        ? a.namaLatin.localeCompare(b.namaLatin)
-                        : b.namaLatin.localeCompare(a.namaLatin)
+                    a.namaLatin.localeCompare(b.namaLatin)
                 )
                 break
-            case 'Jumlah Ayat':
+            case 'Abjad Desc':
                 sortedSurah.sort((a, b) =>
-                    isAscending
-                        ? a.jumlahAyat - b.jumlahAyat
-                        : b.jumlahAyat - a.jumlahAyat
+                    b.namaLatin.localeCompare(a.namaLatin)
                 )
+                break
+            case 'Jumlah Ayat Asc':
+                sortedSurah.sort((a, b) => a.jumlahAyat - b.jumlahAyat)
+                break
+            case 'Jumlah Ayat Desc':
+                sortedSurah.sort((a, b) => b.jumlahAyat - a.jumlahAyat)
+                break
+            case 'No Urut Desc':
+                sortedSurah.sort((a, b) => b.nomor - a.nomor)
                 break
             default:
-                sortedSurah.sort((a, b) =>
-                    isAscending ? a.nomor - b.nomor : b.nomor - a.nomor
-                )
+                sortedSurah.sort((a, b) => a.nomor - b.nomor)
                 break
         }
         return sortedSurah
@@ -78,13 +87,21 @@ export default function SurahList() {
                             : 'flex flex-col'
                     }`}
                 >
-                    {filteredSurah().map((surah) => (
-                        <SurahCard
-                            key={surah.nomor}
-                            surah={surah}
-                            gridLayout={gridLayout}
-                        />
-                    ))}
+                    {isLoading ? (
+                        <>
+                            {filteredSurah().map((surah) => (
+                                <SurahCard
+                                    key={surah.nomor}
+                                    surah={surah}
+                                    gridLayout={gridLayout}
+                                />
+                            ))}
+                        </>
+                    ) : (
+                        Array.from({ length: 12 }, (_, index) => (
+                            <SurahCardSkeleton key={index} />
+                        ))
+                    )}
                 </div>
                 {/* End Surah Grid */}
             </section>

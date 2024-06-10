@@ -17,7 +17,7 @@ function SurahCard({ surah, gridLayout }: SurahCardProps) {
         <>
             <Link href={`/surah/${surah.nomor}`}>
                 <div
-                    className={`w-full flex justify-between bg-white hover:bg-stone-100/90 transition-all overflow-hidden rounded-lg shadow lg:shadow-md cursor-pointer flex-col p-5 ${
+                    className={`w-full flex justify-between bg-white hover:bg-stone-100/90 transition-all rounded-lg shadow lg:shadow-md cursor-pointer flex-col p-5 ${
                         gridLayout ? 'h-auto xl:h-40' : 'h-auto'
                     }`}
                 >

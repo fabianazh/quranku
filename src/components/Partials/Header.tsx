@@ -38,6 +38,8 @@ export default function Header() {
         }
     }, [controls])
 
+    const surahId = pathname.split('/')[2]
+
     return (
         <motion.header
             initial={{
@@ -56,7 +58,7 @@ export default function Header() {
                 },
             }}
             transition={{ duration: 0 }}
-            className={`w-full z-40 h-16 px-11 tracking-wide flex justify-between items-center fixed top-0 right-0 text-Green-300 duration-300 transition-all`}
+            className={`w-full z-40 h-12 lg:h-16 px-6 lg:px-11 tracking-wide flex justify-between items-center fixed top-0 right-0 text-Green-300 duration-300 transition-all`}
         >
             <div
                 className={`${
@@ -67,15 +69,17 @@ export default function Header() {
             >
                 <AppIcon pathname={pathname} />
                 <Link
-                    href={'/surah'}
+                    href={
+                        pathname.includes('tafsir') ? `/surah/${surahId}` : '/'
+                    }
                     className={`${
                         pathname.startsWith('/surah/')
-                            ? 'flex gap-3 items-center'
+                            ? 'flex gap-3 w-fit items-center'
                             : 'hidden'
                     }`}
                 >
-                    <FiArrowLeft className="text-lg hover:text-green-500 duration-300 transition-all" />
-                    <span className="font-bold text-sm hover:text-green-500 duration-300 transition-all">
+                    <FiArrowLeft className="text-xl lg:text-lg hover:text-green-500 duration-300 transition-all" />
+                    <span className="hidden lg:inline-block font-bold text-sm hover:text-green-500 duration-300 transition-all">
                         Kembali
                     </span>
                 </Link>

@@ -26,38 +26,40 @@ export default function SurahDescriptionContainer({
     return (
         <>
             {surah?.namaLatin && (
-                <section className="w-full h-auto flex flex-col gap-4 bg-white p-7 rounded-lg shadow divide-y-[1.5px]">
-                    <div className="text-center flex flex-col gap-1.5">
-                        <h1 className="text-2xl">
+                <section className="w-full h-auto flex flex-col gap-4 bg-white p-5 lg:p-7 rounded-lg shadow divide-y-[1.5px]">
+                    <div className="text-center flex flex-col gap-0.5 lg:gap-1.5">
+                        <h1 className="text-xl lg:text-2xl">
                             Q.S. {surah?.namaLatin} ({surah?.arti})
                         </h1>
                         <div className="flex gap-2 justify-center items-center">
-                            <span className="">
+                            <span className="text-sm lg:text-base">
                                 {surah?.tempatTurun === 'Mekah'
                                     ? 'Makkiyah'
                                     : 'Madaniyah'}
                             </span>
                             <LuDot className="text-xl" />
-                            <span className="">{surah?.jumlahAyat} Ayat</span>
+                            <span className="text-sm lg:text-base">
+                                {surah?.jumlahAyat} Ayat
+                            </span>
                         </div>
                     </div>
-                    <div className="pt-4">
+                    <div className="pt-2 lg:pt-4">
                         <span
                             dangerouslySetInnerHTML={{
                                 __html: surah?.deskripsi ?? '',
                             }}
-                            className="text-justify block leading-7"
+                            className="text-sm lg:text-base text-justify block leading-6 lg:leading-7"
                         ></span>
                     </div>
-                    <div className="w-full justify-between flex pt-6">
-                        <div className="flex w-1/3">
+                    <div className="w-full justify-between flex pt-4 lg:pt-6">
+                        <div className="flex shrink-0 w-1/3">
                             {surah?.suratSebelumnya &&
                             surah?.suratSebelumnya.nomor ? (
                                 <>
                                     <BasicButton
                                         pathTo={`/surah/${surah?.suratSebelumnya.nomor}`}
                                         customClass={
-                                            'text-sm px-2 py-1 primary__gradient text-white bg-white shadow transition-all duration-300 rounded-sm flex justify-between gap-2'
+                                            'text-xs lg:text-sm px-3 w-full lg:w-fit py-1 primary__gradient text-white bg-white shadow transition-all duration-300 rounded-sm flex justify-center gap-2'
                                         }
                                     >
                                         <HiArrowNarrowLeft className="text-lg" />
@@ -87,17 +89,17 @@ export default function SurahDescriptionContainer({
                                     src={surah?.audioFull?.['01']}
                                     controls
                                 />
-                                <FiShare2 className="text-xl cursor-pointer" />
+                                <FiShare2 className="hidden lg:inline-block text-xl cursor-pointer" />
                             </div>
                         </div>
-                        <div className="flex w-1/3 justify-end">
+                        <div className="flex shrink-0 w-1/3 justify-end">
                             {surah?.suratSelanjutnya &&
                             surah?.suratSelanjutnya.nomor ? (
                                 <>
                                     <BasicButton
                                         pathTo={`/surah/${surah?.suratSelanjutnya.nomor}`}
                                         customClass={
-                                            'text-sm px-2 py-1 primary__gradient text-white bg-white shadow transition-all duration-300 rounded-sm flex items-center justify-between gap-2'
+                                            'text-xs lg:text-sm px-3 w-full lg:w-fit py-1 primary__gradient text-white bg-white shadow transition-all duration-300 rounded-sm flex justify-center gap-2'
                                         }
                                     >
                                         <span>

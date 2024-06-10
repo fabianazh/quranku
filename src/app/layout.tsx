@@ -3,6 +3,7 @@ import './globals.css'
 import { quicksand } from './fonts'
 import Header from '@/components/Partials/Header'
 import Footer from '@/components/Partials/Footer'
+import ScrollToTopButton from '@/components/Button/ScrollToTopButton'
 
 export const metadata: Metadata = {
     title: 'QuranKu App',
@@ -18,10 +19,11 @@ export default function RootLayout({
         <html lang="en">
             <body className={quicksand.className}>
                 <Header />
-                <main className="pt-20 mb-14 container px-2 mx-auto min-h-screen">
+                <main className="pt-20 mb-6 lg:mb-14 container px-2 mx-auto min-h-screen">
                     {children}
                 </main>
                 <Footer />
+                <ScrollToTopButton />
             </body>
         </html>
     )

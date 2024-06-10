@@ -3,11 +3,18 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(
     req: NextRequest,
-    { params }: { params: { surahId: string } }
+    {
+        params,
+    }: {
+        params: {
+            surahId: string
+            verseId: string
+        }
+    }
 ) {
     try {
         const response = await axios.get(
-            `https://equran.id/api/v2/surat/${params.surahId}`
+            `https://api.quran.gading.dev/surah/${params.surahId}/${params.verseId}`
         )
         return NextResponse.json(response.data.data)
     } catch (error) {

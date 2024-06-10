@@ -9,13 +9,13 @@ interface BasicButtonProps {
 export default function BasicButton({
     pathTo,
     children,
-    customClass,
+    customClass = ' px-6 ',
 }: BasicButtonProps) {
     return (
         <>
             <Link
                 href={pathTo}
-                className={`px-6 cursor-pointer rounded py-1.5 ${customClass}`}
+                className={`cursor-pointer rounded py-1.5 ${customClass}`}
             >
                 {children}
             </Link>

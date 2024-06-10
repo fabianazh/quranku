@@ -8,10 +8,10 @@ export default function Footer() {
         <>
             <footer
                 id="footer"
-                className="flex items-center justify-between bg-Gray-100/90 font-semibold text-sm text-black shadow-xl pl-11 pr-24 py-4"
+                className="flex flex-col lg:flex-row items-center justify-between bg-Gray-100/90 font-semibold text-sm text-black shadow-xl lg:pl-11 lg:pr-24 py-4 gap-y-3"
             >
                 <span>© {currentYear} Fabianazh. All rights reserved</span>
-                <div className="h-auto flex justify-between w-auto gap-8">
+                <div className="h-auto flex justify-between w-auto gap-5 lg:gap-8">
                     <Link
                         href="http://github.com/fabianazh/"
                         className="icon__sm"
