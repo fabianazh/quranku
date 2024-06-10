@@ -1,8 +1,10 @@
-import { HiArrowNarrowLeft } from 'react-icons/hi'
-import BasicButton from '@/components/Button/BasicButton'
 import Divider from '@/components/Other/Divider'
 
-export default function InterpretationCard({ interpretation }: Interpretation) {
+export default function InterpretationCard({
+    interpretation,
+}: {
+    interpretation: Interpretation
+}) {
     return (
         <>
             <div className="bg-white flex flex-col px-3 lg:px-6 py-5 lg:py-7 rounded-lg shadow">

@@ -40,6 +40,7 @@ interface Hadith {
 
 interface Interpretation {
     surah: {
+        number: number
         name: {
             transliteration: {
                 id: string

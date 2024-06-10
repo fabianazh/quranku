@@ -8,7 +8,9 @@ import { useParams } from 'next/navigation'
 
 export default function InterpretationVerse() {
     const { surahId, verseId } = useParams()
-    const [interpretation, setInterpretation] = useState([])
+    const [interpretation, setInterpretation] = useState<Interpretation | null>(
+        null
+    )
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
@@ -32,7 +34,15 @@ export default function InterpretationVerse() {
         <>
             <section className="w-full lg:w-9/12 min-h-screen lg:container mx-auto flex">
                 {isLoading ? (
-                    <InterpretationCard interpretation={interpretation} />
+                    <>
+                        {interpretation ? (
+                            <InterpretationCard
+                                interpretation={interpretation}
+                            />
+                        ) : (
+                            <></>
+                        )}
+                    </>
                 ) : (
                     <InterpretationVerseSkeleton />
                 )}
