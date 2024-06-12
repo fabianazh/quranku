@@ -18,6 +18,8 @@ QuranKu is a modern and accessible Quran web application designed to provide use
 
 -   **TypeScript:** A superset of JavaScript that adds static types to the language.
 
+-   **Tailwind CSS:** A utility-first CSS framework for rapidly building custom designs.
+
 ## Getting Started
 
 1. **Clone the Repository:**
@@ -49,6 +51,21 @@ Contributions are welcome! If you'd like to contribute to QuranKu, please follow
 2. Create a new branch for your feature or bug fix.
 3. Make your changes and commit them.
 4. Submit a pull request.
+
+## API Reference
+
+-   https://equran.id/api/v2/
+-   https://api.quran.gading.dev/
+
+## Credits
+
+QuranKu utilizes the following libraries and tools:
+
+-   [Next.js](https://nextjs.org/)
+-   [TypeScript](https://www.typescriptlang.org/)
+-   [Tafsir API](https://api.quran.gading.dev/)
+-   [Quran API]https://equran.id/api/v2/)
+-   [Tailwind CSS](https://tailwindcss.com/)
 
 ## License
 

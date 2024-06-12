@@ -1,3 +1,4 @@
+import { uthman } from '@/app/fonts'
 import Divider from '@/components/Other/Divider'
 
 export default function InterpretationCard({
@@ -24,7 +25,7 @@ export default function InterpretationCard({
                 <div className="flex flex-col lg:gap-8 w-full pb-3 lg:pb-3">
                     <div className="flex flex-col gap-0 lg:gap-4 w-full mb-1 lg:mb-0">
                         <span
-                            className="text-2xl xl:text-4xl block font-uthmanic text-right font-light"
+                            className={`text-2xl xl:text-4xl block text-right font-light ${uthman.className}`}
                             style={{ lineHeight: '4rem' }}
                         >
                             {interpretation.text
