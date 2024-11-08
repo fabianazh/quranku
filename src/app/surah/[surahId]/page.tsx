@@ -1,67 +1,88 @@
-'use client'
-
-import { useState, useEffect } from 'react'
-import SurahDescriptionContainer from '@/components/Container/SurahDescriptionContainer'
-import VerseCard from '@/components/Card/VerseCard'
+import Surah from '@/components/Page/Surah'
 import axios from 'axios'
-// import { useRouter } from 'next/router'
-import SurahDescriptionContainerSkeleton from '@/components/Skeleton/SurahDescriptionContainerSkeleton'
-import VerseCardSkeleton from '@/components/Skeleton/VerseCardSkeleton'
 
-export default function SurahDetail({ params }: SurahDetailPageProps) {
-    const [surah, setSurah] = useState<Surah>()
-    const [isLoading, setIsLoading] = useState<boolean>(false)
+// export async function generateStaticParams() {
+//     const surah: Surah[] = await axios.get('https://equran.id/api/v2/surat')
 
-    // const router = useRouter()
-    // if (params.surahId > 146 || params.surahId < 1) {
-    //     router.push('/surah')
-    // }
+//     return surah.map((item: Surah) => ({
+//         surahId: item.nomor,
+//     }))
+// }
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setIsLoading(false)
-                const response = await axios.get(`/api/surah/${params.surahId}`)
-                setSurah(response.data)
-            } catch (err) {
-                console.log(err)
-            } finally {
-                setIsLoading(true)
+export async function generateMetadata({
+    params,
+}: {
+    params: {
+        surahId: number
+    }
+}) {
+    const { surahId } = params
+    try {
+        const surah: Surah | undefined | null = await axios.get(
+            `/api/surah/${surahId}`
+        )
+
+        if (surah === undefined || surah === null) {
+            return {
+                title: 'Halaman tidak dapat ditemukan!',
+                description:
+                    'Halaman yang kamu cari sepertinya sudah dihapus atau sudah tidak tersedia.',
+                openGraph: {
+                    title: 'Halaman tidak dapat ditemukan!',
+                    description:
+                        'Halaman yang kamu cari sepertinya sudah dihapus atau sudah tidak tersedia.',
+                    images: [],
+                },
+                robots: 'noindex, nofollow',
             }
         }
-        fetchData()
-    }, [params.surahId])
+        return {
+            title: `${surah?.namaLatin} | Quranku App`,
+            description:
+                'QuranKu is a modern and accessible Quran web application designed to provide users with a seamless reading experience anywhere, anytime. Whether users are at home, traveling, or on the move, QuranKu ensures that the beauty and wisdom of the Quran are just a click away',
+            keywords: [
+                'QuranKu App',
+                'AlQuranKu App',
+                'QuranKu',
+                'AlQuranKu',
+                'Al-QuranKu',
+                'Quran Online',
+                'AlQuran Online',
+                'Al-Quran Online',
+                'Fabianazh projects',
+                `Fabianazh's projects`,
+                'Muhammad Fabian Azhar',
+                'Quran Indonesia',
+                'AlQuran Indonesia',
+            ],
+            robots: 'index, follow',
+            canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/surah/${surahId}`,
+            openGraph: {
+                title: `${surah?.namaLatin} | Quranku App`,
+                description: 'Quranku App',
+                images: [],
+            },
+        }
+    } catch (error) {
+        return {
+            title: 'Halaman tidak dapat ditemukan!',
+            description:
+                'Halaman yang kamu cari sepertinya sudah dihapus atau sudah tidak tersedia.',
+            openGraph: {
+                title: 'Halaman tidak dapat ditemukan!',
+                description:
+                    'Halaman yang kamu cari sepertinya sudah dihapus atau sudah tidak tersedia.',
+                images: [],
+            },
+            robots: 'noindex, nofollow',
+        }
+    }
+}
 
+export default function SurahPage({ params }: SurahDetailPageProps) {
     return (
         <>
-            {isLoading ? (
-                <>
-                    <SurahDescriptionContainer surah={surah} />
-                    {surah?.ayat?.map((item: Verse) => (
-                        <VerseCard key={item.nomorAyat}>
-                            <VerseCard.TopContent
-                                number={item.nomorAyat}
-                                text={item.teksArab}
-                            ></VerseCard.TopContent>
-                            <VerseCard.CenterContent
-                                text={item.teksLatin}
-                                translate={item.teksIndonesia}
-                            ></VerseCard.CenterContent>
-                            <VerseCard.BottomContent
-                                surahNumber={surah.nomor}
-                                number={item.nomorAyat}
-                                audio={item.audio['01']}
-                            ></VerseCard.BottomContent>
-                        </VerseCard>
-                    ))}
-                </>
-            ) : (
-                <>
-                    <SurahDescriptionContainerSkeleton />
-                    <VerseCardSkeleton />
-                    <VerseCardSkeleton />
-                </>
-            )}
+            <Surah surahId={params.surahId} />
         </>
     )
 }

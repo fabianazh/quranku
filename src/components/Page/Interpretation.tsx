@@ -4,10 +4,14 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import InterpretationCard from '@/components/Card/InterpretationCard'
 import InterpretationVerseSkeleton from '@/components/Skeleton/InterpretationVerseSkeleton'
-import { useParams } from 'next/navigation'
 
-export default function InterpretationVerse() {
-    const { surahId, verseId } = useParams()
+export default function Interpretation({
+    surahId,
+    verseId,
+}: {
+    surahId: number
+    verseId: number
+}) {
     const [interpretation, setInterpretation] = useState<Interpretation | null>(
         null
     )
@@ -15,7 +19,6 @@ export default function InterpretationVerse() {
 
     useEffect(() => {
         getInterpretation()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const getInterpretation = async () => {

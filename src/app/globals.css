@@ -27,7 +27,4 @@
     .primary__gradient {
         @apply bg-gradient-to-br from-Green-400 via-Green-300 to-Green-300;
     }
-    .font-uthmanic {
-        font-family: 'Uthmanic', sans-serif !important;
-    }
 }

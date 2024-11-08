@@ -5,7 +5,7 @@ import { FiPauseCircle, FiPlayCircle, FiShare2 } from 'react-icons/fi'
 import NumberIcon from '@/components/Icon/NumberIcon'
 import BasicButton from '@/components/Button/BasicButton'
 import Divider from '@/components/Other/Divider'
-import { uthman } from '@/app/fonts'
+import { qalam } from '@/app/fonts'
 
 export default function VerseCard({ children }: { children: React.ReactNode }) {
     return (
@@ -29,7 +29,7 @@ export function TopContent({ number, text }: { number: number; text: string }) {
 
                 {/* Verse */}
                 <span
-                    className={`text-3xl xl:text-4xl block text-right -translate-y-3 font-light ${uthman.className}`}
+                    className={`text-3xl xl:text-4xl block text-right -translate-y-3 font-light ${qalam.className}`}
                     style={{ lineHeight: '4rem' }}
                 >
                     {text}

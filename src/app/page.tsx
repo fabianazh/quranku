@@ -1,11 +1,5 @@
-import SurahList from '@/components/Section/SurahList'
-import TodayHadits from '@/components/Section/TodayHadits'
+import Home from '@/components/Page/Home'
 
 export default function Surah() {
-    return (
-        <>
-            <TodayHadits />
-            <SurahList />
-        </>
-    )
+    return <Home />
 }

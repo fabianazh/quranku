@@ -1,4 +1,4 @@
-import { Amiri, Poppins, Quicksand } from 'next/font/google'
+import { Poppins, Quicksand } from 'next/font/google'
 import localFont from 'next/font/local'
 
 export const quicksand = Quicksand({
@@ -13,13 +13,7 @@ export const poppins = Poppins({
     display: 'swap',
 })
 
-export const amiri = Amiri({
-    subsets: ['arabic'],
-    weight: ['400', '700'],
-    display: 'swap',
-})
-
-export const uthman = localFont({
-    src: './fonts/uthman.otf',
+export const qalam = localFont({
+    src: './fonts/Al-Qalam.ttf',
     display: 'swap',
 })

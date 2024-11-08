@@ -1,4 +1,4 @@
-import { uthman } from '@/app/fonts'
+import { qalam } from '@/app/fonts'
 import Divider from '@/components/Other/Divider'
 
 export default function InterpretationCard({
@@ -25,7 +25,7 @@ export default function InterpretationCard({
                 <div className="flex flex-col lg:gap-8 w-full pb-3 lg:pb-3">
                     <div className="flex flex-col gap-0 lg:gap-4 w-full mb-1 lg:mb-0">
                         <span
-                            className={`text-2xl xl:text-4xl block text-right font-light ${uthman.className}`}
+                            className={`text-2xl xl:text-4xl block text-right font-light ${qalam.className}`}
                             style={{ lineHeight: '4rem' }}
                         >
                             {interpretation.text
@@ -67,22 +67,6 @@ export default function InterpretationCard({
                                 : ''}
                         </span>
                     </div>
-                    {/* <BasicButton
-                        pathTo={`/ruang-muslim-v1/quran-digital/surah/${
-                            surah.surah ? surah.surah.number : ''
-                        }/`}
-                        customClass={
-                            'text-sm px-2 flex gap-2 w-fit py-2.5 text-white bg-gradient-to-br from-Green-300 via-Green-300 to-Green-400 transition-all duration-300 rounded'
-                        }
-                    >
-                        <HiArrowNarrowLeft className="text-xl" />
-                        <span>
-                            Kembali Ke Surah{' '}
-                            {surah.surah
-                                ? surah.surah.name.transliteration.id
-                                : ''}
-                        </span>
-                    </BasicButton> */}
                 </div>
             </div>
         </>
