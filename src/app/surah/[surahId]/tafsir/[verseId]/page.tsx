@@ -1,31 +1,22 @@
 import Interpretation from '@/components/Page/Interpretation'
 import axios from 'axios'
 
-// export async function generateStaticParams() {
-//     const allVerses: any[] = []
-
-//     for (let i = 1; i <= 114; i++) {
-//         try {
-//             const response = await axios.get<{ ayat: Verse[] }>(
-//                 `https://equran.id/api/v2/surat/${i}`
-//             )
-//             const verses = response.data.ayat
-
-//             if (Array.isArray(verses)) {
-//                 verses.forEach((item) => {
-//                     allVerses.push({
-//                         verseId: item.nomorAyat,
-//                     })
-//                 })
-//             } else {
-//                 console.warn(`Warning: No verses found for chapter ${i}`)
-//             }
-//         } catch (error) {
-//             console.error(`Error fetching chapter ${i}:`, error)
-//         }
+// export async function generateStaticParams({
+//     params,
+// }: {
+//     params: {
+//         verseId: number
+//         surahId: number
 //     }
+// }) {
+//     const { surahId } = params
+//     const verse: Verse[] = await axios.get(
+//         `https://equran.id/api/v2/surat/${surahId}`
+//     )
 
-//     return allVerses
+//     return verse.map((item: Verse) => ({
+//         verseId: item.nomorAyat,
+//     }))
 // }
 
 export async function generateMetadata({
